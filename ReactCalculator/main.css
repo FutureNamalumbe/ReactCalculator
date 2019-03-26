@@ -1,0 +1,207 @@
+*{ margin:0; padding:0;}
+
+#CalculatorCont{
+    width: 30.5rem;
+    height: 29rem;
+    margin:3rem auto;
+    padding:0 0.2rem 0 0.5rem;
+    background: #A7A9AC;
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(.34, rgba(230,237,241,.05)),
+        color-stop(.67, rgba(230,237,241,0)));
+    -webkit-background-size: 5px 5px;
+}
+
+/*--------------------------------------------------------- OUTPUT STYLING ------------------*/
+.output {
+    width:98.8%;
+    height:5rem;
+    float:left;
+    margin: 0.5rem 0 0.1rem 0;
+} 
+ 
+.output div {
+    width:100%;
+    height:5rem; 
+    background-color:rgb(114, 254, 224);
+    display: inline-block;
+    color: #3A474D;
+    font-family: 'TradeGothicLTStd-BdCn20','PT Sans Narrow';
+    font-weight: 700;
+    font-size: 32px;
+    text-shadow: 0px 1px #fff, 0px -1px #262F33;   
+}
+
+.output div span{
+    width:100%;
+    margin-top:1.4rem;
+    float:left;
+    text-align: center;   
+}
+
+/*--------------------------------------------------------- BTN STYLING ------------------*/
+
+.btnCont{
+    width:99%;
+    height:auto;   
+    padding: 0.2rem 0.2rem 0.75rem 0.2rem;
+    float:left;
+}
+
+.btn {
+    width:10rem;
+    margin-top:0.8rem;   
+    outline: none;
+    background:transparent;
+    border: 1px solid transparent;  
+    float: left;    
+} 
+
+.btn span {
+    width:100%;
+    background-color:#72FE95;
+    display: inline-block;
+    padding: 10px 0;
+    color: #3A474D;
+    text-transform: uppercase;
+    font-family: 'TradeGothicLTStd-BdCn20','PT Sans Narrow';
+    font-weight: 700;
+    font-size: 32px;
+    text-shadow: 0px 1px #fff, 0px -1px #262F33;   
+}
+
+.btn span:hover {
+    color: rgb(188, 15, 194);
+    cursor: pointer;
+}
+
+.calculate{
+    width:15.6rem;
+    margin:0.8rem 0.2rem 0 0;  
+    float:left;  
+}
+
+.calculate span{
+    background-color: rgb(1, 183, 255);
+}
+
+.calculate span:hover {
+    color: rgb(247, 1, 255);
+}
+
+.add, .subtract , .divide,  .multiply{
+    width:5rem;  
+}
+
+.add span, .subtract span, .divide span, .multiply span{   
+    background-color:rgb(135, 143, 223)
+}
+
+.clear{
+    width:14.2rem; 
+    float: left;
+}
+
+.clear span{
+    width:100%; 
+    background-color:rgb(254, 114, 212);
+}
+
+.clear span:hover {
+    color: rgb(255, 1, 1);
+}
+
+/* --------------------------------------------------------- BOTH -------------------------- */
+
+.output, .btn{
+    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+    -webkit-box-shadow: 
+        0px 3px rgba(128,128,128,1), /* gradient effects */
+        0px 4px rgba(118,118,118,1),
+        0px 5px rgba(108,108,108,1),
+        0px 6px rgba(98,98,98,1),
+        0px 7px rgba(88,88,88,1),
+        0px 8px rgba(78,78,78,1),
+        0px 14px 6px -1px rgba(128,128,128,1); /* shadow */ 
+}
+
+.output div , .btn span {
+
+    -webkit-background-size: 100%, 100%, 100%, 4px 4px;
+    -webkit-transition: -webkit-transform .1s ease-in-out;
+    
+    background-image: 
+        /* gloss gradient */
+        -webkit-gradient(
+            linear, 
+            left bottom, 
+            left top, 
+            color-stop(50%,rgba(255,255,255,0)), 
+            color-stop(50%,rgba(255,255,255,0.3)), 
+            color-stop(100%,rgba(255,255,255,0.2))),
+        
+        /* dark outside gradient */
+        -webkit-gradient(
+            linear, 
+            left top, 
+            right top, 
+            color-stop(0%,rgba(210,210,210,0.3)), 
+            color-stop(20%,rgba(210,210,210,0)), 
+            color-stop(80%,rgba(210,210,210,0)), 
+            color-stop(100%,rgba(210,210,210,0.3))),
+        
+        /* light inner gradient */
+        -webkit-gradient(
+            linear, 
+            left top, 
+            right top, 
+            color-stop(0%,rgba(255,255,255,0)), 
+            color-stop(20%,rgba(255,255,255,0.5)), 
+            color-stop(80%,rgba(255,255,255,0.5)), 
+            color-stop(100%,rgba(255,255,255,0))),        
+        
+        /* diagonal line pattern */
+        -webkit-gradient(
+            linear, 
+            0% 100%, 
+            100% 0%, 
+            color-stop(0%,rgba(255,255,255,0)), 
+            color-stop(40%,rgba(255,255,255,0)), 
+            color-stop(40%,#D2D2D1), 
+            color-stop(60%,#D2D2D1), 
+            color-stop(60%,rgba(255,255,255,0)), 
+            color-stop(100%,rgba(255,255,255,0)));
+    
+        -webkit-box-shadow:
+            0px -1px #fff, /* top highlight */
+            0px 1px 1px #FFFFFF; /* bottom edge */   
+}
+
+.output:active, .btn:active {
+    -webkit-box-shadow: 
+        0px 3px rgba(128,128,128,1),
+        0px 4px rgba(118,118,118,1),
+        0px 5px rgba(108,108,108,1),
+        0px 6px rgba(98,98,98,1),
+        0px 7px rgba(88,88,88,1),
+        0px 8px rgba(78,78,78,1),
+        0px 10px 2px 0px rgba(128,128,128,.6); /* shadow */
+}
+
+.output:active span,.btn:active span{
+    -webkit-transform: translate(0, 5px); /* depth of output press */
+}
+
+.output span:after, .btn span:after {
+    display: block;
+    width: 10px;
+    height: 10px;         
+    font-family: 'Cabin';
+    font-weight: 700;
+    color: #AEBF3B;
+    text-shadow: 0px 1px #fff, 0px -1px #97A63A;
+    font-size: 26px;
+}
