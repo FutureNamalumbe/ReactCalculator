@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel ='stylesheet' href='main.css' type='text/css'/> 
+    <title>React - Calculator</title>
+    <script crossorigin src='https://unpkg.com/react@16/umd/react.production.min.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@16/umd/react-dom.production.min.js'></script>
+    <script crossorigin src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js'></script>
+</head>
+<body>
+      
+<div id='container'></div>
+      
+<script type='text/babel'>
+      
+    class Calculator extends React.Component {
+        
+        // declaring state
+        state = {
+            equation: ''
+        }
+
+            
+        setNum = (num) => { 
+            this.setState({
+                equation: this.state.equation + num 
+            })
+        }
+
+        // setting the operator for the equation      
+        setOperator = (operator) => {    
+            const equation = this.state.equation.toString()
+            const arr = equation.split(' ')
+                        
+            if(arr.length > 2 ){ 	 
+                return this.calculate()
+            }
+
+            this.setState({
+                equation:this.state.equation + ' ' + operator + ' '
+            })  
+        }
+        
+        // calculating the equation
+        calculate = () => { 
+            const equation = this.state.equation.split(' ')
+            const operator = equation[1]
+            const num1 = Number(equation[0])
+            const num2 = Number(equation[2])
+      
+            switch(operator) {
+                case '+': 
+                    this.setState({
+                        equation: num1 + num2 
+                    })
+                break
+            
+                case '-': 
+                    this.setState({
+                        equation: num1 - num2
+                     })
+                break
+
+                case '*': 
+                    this.setState({
+                        equation: num1 * num2 
+                    })
+                break
+
+                case '/': 
+                    this.setState({
+                       equation: num1 / num2 
+                    })
+                break
+
+                default: 
+                    this.setState({
+                        equation: 'Syntax Error'
+                    })
+                break
+            }			 
+        }
+        
+        // cancel current equation, setting state to empty string
+        cancel = () => { 
+            this.setState({equation: ''})
+        }
+
+        render() {
+            return (
+                <div id='CalculatorCont'>
+
+                    <div className='output'>
+                        <div><span>{this.state.equation}</span></div>
+                    </div>
+
+                    <div class='btnCont'>
+                        <button onClick={ () => {this.setNum('7')} } className='btn'> <span>7</span> </button>
+                        <button onClick={ () => {this.setNum('8')} } className='btn'> <span>8</span> </button>
+                        <button onClick={ () => {this.setNum('9')} } className='btn'> <span>9</span> </button>
+                        <button onClick={ () => {this.setNum('4')} } className='btn'> <span>4</span> </button>
+                        <button onClick={ () => {this.setNum('5')} } className='btn'> <span>5</span> </button>
+                        <button onClick={ () => {this.setNum('6')} } className='btn'> <span>6</span> </button>
+                        <button onClick={ () => {this.setNum('1')} } className='btn'> <span>1</span> </button>
+                        <button onClick={ () => {this.setNum('2')} } className='btn'> <span>2</span> </button>
+                        <button onClick={ () => {this.setNum('3')} } className='btn'> <span>3</span> </button>
+                        <button onClick={ () => {this.setNum('0')} } className='btn'> <span>0</span> </button>
+                        <button onClick={ () => {this.setOperator('+')} } className='btn add'> <span>+</span> </button>
+                        <button onClick={ () => {this.setOperator('-')} } className='btn subtract'> <span>-</span> </button>                                      
+                        <button onClick={ () => {this.setOperator('/')} } className='btn divide'> <span>/</span> </button>
+                        <button onClick={ () => {this.setOperator('*')} } className='btn multiply'> <span>*</span> </button> 
+                        <button onClick={this.calculate} className='btn calculate'> <span> = </span> </button>
+                        <button onClick={this.cancel} className='btn clear'> <span> C </span> </button>                                             
+                    </div>
+                </div>
+            )
+        }      
+    }
+
+    ReactDOM.render(<Calculator/>, document.getElementById('container'))
+</script>
+
+</body>
+</html>
